@@ -1,418 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teaching | Shushanta Acharjee</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-   
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,500&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/css/bootstrap.min.css">
-    <script src="https://kit.fontawesome.com/71258d5dfb.js" crossorigin="anonymous"></script>
-    <style>
-        :root {
-            --primary-color: #0b3954;
-            --secondary-color: #087E8B;
-            --accent-color: #FF5A5F;
-            --light-color: #f8f9fa;
-            --dark-color: #343a40;
-            --text-color: #495057;
-            --bg-color: #ffffff;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            color: var(--text-color);
-            background-color: var(--bg-color);
-            line-height: 1.6;
-            padding-top: 80px; /* For fixed navbar */
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-
-        /* Navbar styles */
-        .navbar {
-            background-color: var(--primary-color);
-            padding: 1rem 2rem;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .navbar-brand {
-            font-family: 'Playfair Display', serif;
-            font-weight: 600;
-            color: white !important;
-            font-size: 1.5rem;
-        }
-
-        .navbar-nav .nav-link {
-            color: rgba(255,255,255,0.8) !important;
-            font-weight: 500;
-            margin: 0 0.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-nav .nav-link:hover,
-        .navbar-nav .nav-link.active {
-            color: white !important;
-        }
-
-        .navbar-toggler {
-            border-color: rgba(255,255,255,0.5);
-        }
-
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-        }
-
-        /* Main content styles */
-        .page-title {
-            background-color: var(--light-color);
-            padding: 3rem 0;
-            text-align: center;
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-            margin-bottom: 2rem;
-        }
-
-        .page-title h1 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .page-title p {
-            color: var(--secondary-color);
-            font-size: 1.2rem;
-        }
-
-        .courses {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        .course-card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .course-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-
-        .course-title {
-            color: var(--secondary-color);
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            border-bottom: 2px solid var(--accent-color);
-            padding-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        .course-level {
-            font-style: italic;
-            color: var(--accent-color);
-            margin-bottom: 1rem;
-        }
-
-        .course-description {
-            margin-left: 1rem;
-        }
-
-        .course-description li {
-            list-style-type: none;
-            position: relative;
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .course-description li::before {
-            content: "•";
-            color: var(--accent-color);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        main {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-        }
-
-        .page-title {
-            background: none;
-            border-bottom: 0;
-            padding: 0;
-            text-align: left;
-            margin-bottom: 1.5rem;
-        }
-
-        .page-title::after {
-            background-color: var(--accent-color);
-            content: '';
-            display: block;
-            height: 3px;
-            margin-top: 0.75rem;
-            width: 50px;
-        }
-
-        .intro {
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-        }
-
-        .block {
-            margin-bottom: 2.75rem;
-        }
-
-        .section-label {
-            border-bottom: 2px solid var(--accent-color);
-            color: var(--secondary-color);
-            display: inline-block;
-            font-size: 1.5rem;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.5rem;
-        }
-
-        .item {
-            border-bottom: 1px solid #e9ecef;
-            margin-bottom: 1.25rem;
-            padding-bottom: 1.25rem;
-        }
-
-        .item:last-child {
-            border-bottom: 0;
-        }
-
-        .item-title {
-            color: var(--primary-color);
-            font-family: 'Playfair Display', serif;
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: 0.35rem;
-        }
-
-        .item-meta,
-        .item-note {
-            font-size: 0.95rem;
-            margin-bottom: 0.35rem;
-        }
-
-        .item-note {
-            color: var(--text-color);
-        }
-
-        /* Footer styles */
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        footer h1 {
-            color: white;
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .footer-text {
-            margin-bottom: 1.5rem;
-        }
-
-        .footer-text p {
-            margin-bottom: 0.3rem;
-        }
-
-        .footer-icon {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-        }
-
-        .footer-icon a {
-            color: white;
-            font-size: 1.5rem;
-            transition: color 0.3s ease;
-        }
-
-        .footer-icon a:hover {
-            color: var(--accent-color);
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .courses {
-                padding: 1rem;
-            }
-            
-            .course-card {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teaching | Shushanta Acharjee</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;1,8..60,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="#">Shushanta Acharjee</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="teaching.html">Teaching</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="research.html">Research</a>
-                    </li>
-                    <li class="nav-item">
-                    <li class="nav-item">
-                        <a class="nav-link" href="cv.html">Entrepreneurial Experience</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
 
-    <main>
-        <h1 class="page-title">Teaching</h1>
+<nav class="site-nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html">Shushanta Acharjee</a>
+    <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="teaching.html" class="active">Teaching</a>
+      <a href="research.html">Research</a>
+      <a href="cv.html">Entrepreneurial Experience</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</nav>
 
-        <p class="intro">My teaching focuses primarily on strategy, entrepreneurship, and management, complemented by experience in marketing and business analytics at both undergraduate and graduate levels. I use research-informed frameworks, case discussions, and applied projects to connect theory with contemporary strategic and organizational challenges, while encouraging critical thinking, active participation, and evidence-based decision-making.</p>
+<main class="wrap">
+  <h1 class="page-title">Teaching</h1>
 
-        <section class="block">
-            <h2 class="section-label">Strategy &amp; Management</h2>
+  <p class="page-intro">My teaching focuses primarily on strategy, entrepreneurship, and management, complemented by experience in marketing and business analytics at both undergraduate and graduate levels. I use research-informed frameworks, case discussions, and applied projects to connect theory with contemporary strategic and organizational challenges, while encouraging critical thinking, active participation, and evidence-based decision-making.</p>
 
-            <div class="item">
-                <p class="item-title">Business Organization</p>
-                <p class="item-meta">ESCI-UPF &middot; 2024&ndash;Present &middot; Bachelor, Year 1</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Organizational Management</p>
-                <p class="item-meta">Universitat Pompeu Fabra &middot; 2022&ndash;Present &middot; Bachelor, Year 1</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Strategic Management</p>
-                <p class="item-meta">IES Abroad &middot; 2023&ndash;2025 &middot; Bachelor, Year 3 (US exchange students)</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Business and Culture</p>
-                <p class="item-meta">IES Abroad &middot; 2023&ndash;2025 &middot; Bachelor, Year 3 (US exchange students)</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Business Management</p>
-                <p class="item-meta">EU Business School &middot; 2022&ndash;2024 &middot; MBA</p>
-            </div>
-        </section>
+  <section class="block">
+    <h2 class="section-label">Strategy &amp; Management</h2>
 
-        <section class="block">
-            <h2 class="section-label">Entrepreneurship &amp; Business Models</h2>
+    <div class="item">
+      <p class="item-title">Business Organization</p>
+      <p class="item-meta">ESCI-UPF &middot; 2024&ndash;Present &middot; Bachelor, Year 1</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Organizational Management</p>
+      <p class="item-meta">Universitat Pompeu Fabra &middot; 2022&ndash;Present &middot; Bachelor, Year 1</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Strategic Management</p>
+      <p class="item-meta">IES Abroad &middot; 2023&ndash;2025 &middot; Bachelor, Year 3 (US exchange students)</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Business and Culture</p>
+      <p class="item-meta">IES Abroad &middot; 2023&ndash;2025 &middot; Bachelor, Year 3 (US exchange students)</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Business Management</p>
+      <p class="item-meta">EU Business School &middot; 2022&ndash;2024 &middot; MBA</p>
+    </div>
+  </section>
 
-            <div class="item">
-                <p class="item-title">Social Business Transformation</p>
-                <p class="item-meta">ESCI-UPF &middot; 2025&ndash;Present &middot; Bachelor, Year 3 (exchange)</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Business Model</p>
-                <p class="item-meta">EU Business School &middot; 2022&ndash;2024 &middot; Master&rsquo;s</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Disruptive Entrepreneurship</p>
-                <p class="item-meta">EU Business School &middot; 2022&ndash;2024 &middot; MBA</p>
-            </div>
-        </section>
+  <section class="block">
+    <h2 class="section-label">Entrepreneurship &amp; Business Models</h2>
 
-        <section class="block">
-            <h2 class="section-label">Marketing &amp; Analytics</h2>
+    <div class="item">
+      <p class="item-title">Social Business Transformation</p>
+      <p class="item-meta">ESCI-UPF &middot; 2025&ndash;Present &middot; Bachelor, Year 3 (exchange)</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Business Model</p>
+      <p class="item-meta">EU Business School &middot; 2022&ndash;2024 &middot; Master&rsquo;s</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Disruptive Entrepreneurship</p>
+      <p class="item-meta">EU Business School &middot; 2022&ndash;2024 &middot; MBA</p>
+    </div>
+  </section>
 
-            <div class="item">
-                <p class="item-title">Marketing Management</p>
-                <p class="item-meta">IES Abroad &middot; 2023&ndash;2025 &nbsp;/&nbsp; ESIC Business &amp; Marketing School &middot; 2021&ndash;2023</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Consumer Behaviour I &amp; II</p>
-                <p class="item-meta">ESIC Business &amp; Marketing School &middot; 2021&ndash;2023 &middot; Bachelor, Year 1 &amp; 2</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Trend Search Analysis for Business</p>
-                <p class="item-meta">ESIC Business &amp; Marketing School &middot; 2023 &middot; Bachelor, Year 3</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Statistics</p>
-                <p class="item-meta">ESIC Business &amp; Marketing School &middot; 2022 &middot; Bachelor, Year 1</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Data Analysis for Business</p>
-                <p class="item-meta">EU Business School &middot; 2024 &middot; Bachelor, Year 2</p>
-            </div>
-        </section>
+  <section class="block">
+    <h2 class="section-label">Marketing &amp; Analytics</h2>
 
-        <section class="block">
-            <h2 class="section-label">Student Supervision</h2>
+    <div class="item">
+      <p class="item-title">Marketing Management</p>
+      <p class="item-meta">IES Abroad &middot; 2023&ndash;2025 &nbsp;/&nbsp; ESIC Business &amp; Marketing School &middot; 2021&ndash;2023</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Consumer Behaviour I &amp; II</p>
+      <p class="item-meta">ESIC Business &amp; Marketing School &middot; 2021&ndash;2023 &middot; Bachelor, Year 1 &amp; 2</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Trend Search Analysis for Business</p>
+      <p class="item-meta">ESIC Business &amp; Marketing School &middot; 2023 &middot; Bachelor, Year 3</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Statistics</p>
+      <p class="item-meta">ESIC Business &amp; Marketing School &middot; 2022 &middot; Bachelor, Year 1</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Data Analysis for Business</p>
+      <p class="item-meta">EU Business School &middot; 2024 &middot; Bachelor, Year 2</p>
+    </div>
+  </section>
 
-            <div class="item">
-                <p class="item-title">Master&rsquo;s Thesis Supervisor</p>
-                <p class="item-meta">BSM-UPF &middot; 2025&ndash;2026</p>
-                <p class="item-note">Selected thesis: &ldquo;Internationalization of Lapp Coffee&rdquo;</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Master&rsquo;s/MBA Thesis Supervisor</p>
-                <p class="item-meta">EU Business School &middot; 2022&ndash;2024</p>
-                <p class="item-note">Selected theses: &ldquo;Sustainability in the Luxury Sector: Balancing Prestige and Environmental Responsibility&rdquo;; &ldquo;Eco-Friendly Growth: Designing a Responsible Market Entry Path for Afropea TV&rdquo;</p>
-            </div>
-            <div class="item">
-                <p class="item-title">Marketing Plan Supervisor</p>
-                <p class="item-meta">ESIC Business &amp; Marketing School &middot; 2021&ndash;2023</p>
-                <p class="item-note">Supervised student consulting and marketing projects, including a winning marketing plan focused on sustainable strategy in the hospitality sector.</p>
-            </div>
-        </section>
-    </main>
+  <section class="block">
+    <h2 class="section-label">Student Supervision</h2>
 
-    <footer>
-        <div>
-            <h1>Shushanta Acharjee</h1>
-            <div class="footer-text">
-                <p>iDEM Program (PhD in Entrepreneurship and Management)</p>
-                <p>Facultat d'Economía i Empresa</p>  
-                <p>Universitat Autónoma de Barcelona</p>
-            </div>
-            <div class="footer-icon">
-                <a href="https://www.facebook.com/susanto.acharjee"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com/shushantaA60070?t=M2-MYhTbvVpZzKh-IruY0Q&s=08"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/shushanta-acharjee-47b461118/"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
+    <div class="item">
+      <p class="item-title">Master&rsquo;s Thesis Supervisor</p>
+      <p class="item-meta">BSM-UPF &middot; 2025&ndash;2026</p>
+      <p class="item-note">Selected thesis: &ldquo;Internationalization of Lapp Coffee&rdquo;</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Master&rsquo;s/MBA Thesis Supervisor</p>
+      <p class="item-meta">EU Business School &middot; 2022&ndash;2024</p>
+      <p class="item-note">Selected theses: &ldquo;Sustainability in the Luxury Sector: Balancing Prestige and Environmental Responsibility&rdquo;; &ldquo;Eco-Friendly Growth: Designing a Responsible Market Entry Path for Afropea TV&rdquo;</p>
+    </div>
+    <div class="item">
+      <p class="item-title">Marketing Plan Supervisor</p>
+      <p class="item-meta">ESIC Business &amp; Marketing School &middot; 2021&ndash;2023</p>
+      <p class="item-note">Supervised student consulting and marketing projects, including a winning marketing plan focused on sustainable strategy in the hospitality sector.</p>
+    </div>
+  </section>
+</main>
 
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.2/js/bootstrap.min.js"></script>
+<footer class="site-footer">
+  <div class="wrap">
+    <p>Shushanta Acharjee</p>
+    <p>iDEM Program (PhD in Entrepreneurship and Management) &middot; Facultat d&rsquo;Econom&iacute;a i Empresa &middot; Universitat Aut&ograve;noma de Barcelona</p>
+    <p><a href="mailto:shushanta.acharjee@upf.edu">Email</a> &middot; <a href="https://scholar.google.com/citations?user=qMNDxnEAAAAJ&hl=en">Google Scholar</a> &middot; <a href="https://www.linkedin.com/in/shushanta-acharjee-47b461118/">LinkedIn</a></p>
+    <p class="footer-copy">&copy; 2026 Shushanta Acharjee</p>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const nav = document.querySelector('.site-nav');
+    const toggle = document.querySelector('.nav-toggle');
+
+    if (nav && toggle) {
+      toggle.addEventListener('click', function () {
+        const isOpen = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+    }
+  });
+</script>
+
 </body>
 </html>
